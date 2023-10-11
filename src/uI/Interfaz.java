@@ -2,13 +2,11 @@ package uI;
 import java.util.Scanner;
 
 import datos.Contacto;
-import negocios.ListaDeContactos;
-
+import negocios.ListadeContactos;
 
 public class Interfaz {
 	static Scanner entrada = new  Scanner(System.in);
-	static ListaDeContactos ldc = new ListaDeContactos();
-	
+	static ListadeContactos ldc = new ListadeContactos();
 	public static void lectura() {
 		System.out.println("Bienvenido");
 		System.out.println("Por favor, escoja una de las siguientes opciones");
@@ -22,8 +20,8 @@ public class Interfaz {
 		System.out.println("****** MENU PRINCIPAL ******");
 		System.out.println("1.- Ingresar Nuevo Contacto");
 		System.out.println("2.- Mostrar Contactos");
-		System.out.println("3.- Modificar Contactos");
-		System.out.println("4.- Eliminar Contactos");
+		System.out.println("3.- Modificar Contacto");
+		System.out.println("4.- Eliminar Contacto");
 		System.out.println("5.- Salir");
 		System.out.println("*****************************");
 		int opcion = entrada.nextInt();
@@ -37,21 +35,28 @@ public class Interfaz {
 			mostrarContactos();
 			break;
 		case 3:
+			//modificar un contacto
 			entrada.nextLine(); // solo limpia la cadena Scanner
 			validarCambio();
 			break;
 		case 4:
+			//Eliminar un contactoentrada.nextLine(); // solo limpia la cadena Scanner
 			entrada.nextLine(); // solo limpia la cadena Scanner
 			validarBaja();
 			break;
 		case 5:
 			salir();
 			break;
+		
 		default:
 			System.out.println("Opción invalida");
-			break;
-		}
-		
+			break;		
+		};
+	}
+	private static void salir() {
+		System.out.println("Sesion Finalizada");
+		System.out.println("Adios!");
+		System.exit(0);
 	}
 	private static void validarAlta() {
 		try {
@@ -64,15 +69,14 @@ public class Interfaz {
 				System.out.println("El nombre debe contener entre 3 y 10 caracteres");
 				System.out.println("y el celular debe contener exactamento 10 números");
 				System.out.println("Los nombres y apellidos no pueden repetirse");
-				//Contacto contacto = new Contacto();
+				
 				System.out.print("NOMBRES:");
-				//entrada.nextLine(); // solo limpia la cadena Scanner
+				
 				nombres = entrada.nextLine();
 				
 				System.out.print("APELLIDOS:");
 				apellidos = entrada.nextLine();
-				
-
+	
 				if (ldc.buscarContacto(nombres, apellidos)!=null) //se puede agregar el contacto
 				{
 					System.out.println("Ya existe un contacto con ese nombre y apellido");
@@ -93,11 +97,10 @@ public class Interfaz {
 			System.out.print("CELULAR:");
 			celular = entrada.nextLine();
 
-			if (ldc.agregarContacto(nombres, apellidos, direccion, correo, telefono, celular))
-
+			if (ldc.agregarContacto(nombres, apellidos, direccion,
+					correo, telefono, celular))
 			{
-				System.out.println("Exito Agregado a la lista de contacto");
-				
+				System.out.println("Exito Agregado a la lista de contacto");	
 			}
 			else
 			{
@@ -105,13 +108,17 @@ public class Interfaz {
 				System.out.println("Si desea agregar nuevamente un contacto");
 				System.out.println("Seleccione la opcion 1");	
 			}
-			
 		}
 		catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 	    imprimirMenu();
+	}
+	private static void mostrarContactos() {
+		System.out.println("Total de elementos: "+ldc.tamanio());
+		ldc.mostrarTodosLosContactos();
+		imprimirMenu();
+		
 	}
 	private static void validarCambio() {
 		try {
@@ -125,16 +132,13 @@ public class Interfaz {
 				nombres = entrada.nextLine();
 				System.out.print("APELLIDOS:");
 				apellidos = entrada.nextLine();
-
-				if (ldc.buscarContacto(nombres, apellidos)==null) 
+				if (ldc.buscarContacto(nombres, apellidos) == null) 
 				{
-					System.out.println("Contacto No Existe");
-								
+					System.out.println("Contacto No Existe");				
 				}
 				else
 				{
 					break;
-					
 				}
 			}
 			System.out.print("DOMICILIO:");
@@ -146,13 +150,10 @@ public class Interfaz {
 			System.out.print("CELULAR:");
 			celular = entrada.nextLine();
 			if (ldc.modificarContacto(nombres, apellidos, direccion, correo, telefono, celular))
-
 			{
 				System.out.println("Modificación Exitosa");
 				System.out.println("Lista de Contactos");
-				
 				ldc.mostrarTodosLosContactos();
-				
 			}
 			else
 			{
@@ -164,10 +165,8 @@ public class Interfaz {
 		catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		imprimirMenu();
 	}
-
 	private static void validarBaja() {
 		try {
 			String nombres,apellidos;
@@ -205,18 +204,11 @@ public class Interfaz {
 
 		imprimirMenu();
 	}
-	private static void mostrarContactos() {
-		System.out.println("Total de elementos: "+ldc.tamanio());
-		ldc.mostrarTodosLosContactos();
-		
-		//System.out.println(ldc.mostrarTodosLosContactos());
-		imprimirMenu();
-		
-	}
-	private static void salir() {
-		System.out.println("Sesion Finalizada");
-		System.out.println("Adios!");
-		System.exit(0);
-	}
 	
+
+
 }
+	
+
+	
+
