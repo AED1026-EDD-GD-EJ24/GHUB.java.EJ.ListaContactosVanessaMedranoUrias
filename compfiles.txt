@@ -3,6 +3,7 @@
 ./src/negocios/Principal.java
 ./src/miTest/AppTest.java
 ./src/datos/Lista.java
+./src/datos/Email.java
 ./src/datos/Nodo.java
 ./src/datos/PosicionIlegalException.java
 ./src/datos/Contacto.java
