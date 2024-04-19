@@ -10,16 +10,14 @@ import datos.PosicionIlegalException;
 
 public class ListadeContactos {
 	//Atributo
-	private Lista<Contacto> contactos;
+	
 	//Metodos
 	//Constructor
-	public ListadeContactos() {
-		contactos = new Lista<Contacto>();
-	}
+	
 	/**
 	 * Retorna una lista de todos los contactos
 	 */
-	public Lista<Contacto> mostrarTodosLosContactos(){
+	public  mostrarTodosLosContactos(){
 		try {
 			   for (int i=0;i<contactos.getTamanio();i++) {
 				   System.out.print("Num: "+i+"-> ");
@@ -52,7 +50,7 @@ public class ListadeContactos {
 				contactos.agregar(nuevo);
 				return true;
 			}else {
-				return false;
+				
 			}
 		}
 	/**
@@ -77,10 +75,10 @@ public class ListadeContactos {
 				}
 				
 			}
-			return true;
+			return ;
 			
 		}else
-			return false;	
+			return ;	
 	}
 	/**
 	 * busca un contactp dado sus nombres y apellido
@@ -89,14 +87,14 @@ public class ListadeContactos {
 	public Contacto buscarContacto(String nombres,String apellidos) 
 			throws PosicionIlegalException{
 		for(int i=0;i<contactos.getTamanio();i++) {
-			Contacto con = contactos.getValor(i);
+			Contacto con = 
 			if(nombres.equals(con.getNombres()) && 
 					apellidos.equals(con.getApellidos())) {
 				return con;
 			}
 			
 		}
-		return null;//No lo encontro, devuelve nulo
+		return ;//No lo encontro, devuelve nulo
 		
 	}
 	public boolean modificarContacto(String nombres, String apellidos,
@@ -108,12 +106,7 @@ public class ListadeContactos {
 			return false;
 		}
 		//Modificar el contacto con los nombres nuevos
-		con.setNombres(nombres);
-		con.setApellidos(apellidos);
-		con.setDireccion(direccion);
-		con.setCorreo(correo);
-		con.setTelefono(telefono);
-		con.setCelular(celular);
+		
 		return true;	
 	}
 	/**
@@ -122,7 +115,7 @@ public class ListadeContactos {
 	 */
 	
 	public int tamanio() {
-		return contactos.getTamanio();
+		
 	}
 	
 }
