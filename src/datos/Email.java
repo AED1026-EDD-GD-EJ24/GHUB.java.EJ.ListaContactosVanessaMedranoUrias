@@ -19,8 +19,8 @@ public class Email {
     private static boolean validarEmail(String email) {
 
         String regex = "^[\\w\\.-]+@([\\w\\.-]+\\.)+[\\w\\.-]{2,3}$";
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(email);
+        Pattern pattern = Pattern.compile(regex);//buscar para entender clases
+        Matcher matcher = pattern.matcher(email);//esta tambien 
         return matcher.matches();
     }
 }

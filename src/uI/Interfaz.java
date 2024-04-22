@@ -150,7 +150,7 @@ public class Interfaz {
 	    imprimirMenu();
 	}
 	private static void mostrarContactos() {
-		System.out.println("Total de elementos: "+); //colocar código faltante
+		System.out.println("Total de elementos: "+ldc.getSize()); //colocar código faltante
 		ldc.mostrarTodosLosContactos();
 		imprimirMenu();
 		
@@ -181,7 +181,7 @@ public class Interfaz {
 			try {
 				System.out.print("CORREO:");
 				correo = entrada.nextLine();
-				new ; //colocar codigo falltante
+				new Email(correo); //colocar codigo falltante
 			}
 			catch (Exception e) {
 				System.out.println("Correo no válido");
@@ -225,7 +225,7 @@ public class Interfaz {
 				System.out.print("APELLIDOS:");
 				apellidos = entrada.nextLine();
 
-				if () //colloque codigo
+				if (ldc.eliminarContacto(nombres, apellidos)) //colloque codigo
 				{
 					System.out.println("Contacto Eliminada");
 					System.out.println("Lista de Contactos");

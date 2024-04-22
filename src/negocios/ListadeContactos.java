@@ -17,7 +17,7 @@ public class ListadeContactos {
 	/**
 	 * Retorna una lista de todos los contactos
 	 */
-	public  mostrarTodosLosContactos(){
+	public Lista<Contacto> mostrarTodosLosContactos(){
 		try {
 			   for (int i=0;i<contactos.getTamanio();i++) {
 				   System.out.print("Num: "+i+"-> ");
@@ -87,7 +87,7 @@ public class ListadeContactos {
 	public Contacto buscarContacto(String nombres,String apellidos) 
 			throws PosicionIlegalException{
 		for(int i=0;i<contactos.getTamanio();i++) {
-			Contacto con = 
+		//	Contacto con = contactos.getValor(i);
 			if(nombres.equals(con.getNombres()) && 
 					apellidos.equals(con.getApellidos())) {
 				return con;

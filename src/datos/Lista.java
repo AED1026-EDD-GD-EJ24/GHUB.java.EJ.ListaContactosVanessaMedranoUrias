@@ -1,68 +1,44 @@
 package datos;
 
-public class Lista<T> {
-	//primer elemento de la lista
-	
-	//Total de elementos de la lista
-	
-	//Constructor por defecto
-	public Lista() {
-		
-	}
-	//Devuelve el tamanio de la lista
-	public int getTamanio() {
-		
-	}
-	/*
-	 * Consulta si la lista esta vacía
-	 */
-	public boolean esVacia() {
-		
-	}
-	/*
-	 * Agrega un nuevo nodo al final de la lista
-	 */
-	public void agregar(T valor) {
-		
-	}
-	/**
-	 * inserta un nuevo nodo en la lista
-	 * @param valor a agregar
-	 * @param posición donde se inserta el nodo el nodo
-	 * @throws posicionIlegalException en caso que la
-	 * posición no existe
-	 */
-	public void insertar(T valor, int pos) throws 
-	    PosicionIlegalException{
-		
-		}else {
-			throw new PosicionIlegalException();
-		}
-	}
-	/**
-	 * Devuelve el valor de una determinada posición
-	 * @param pos posicion
-	 * @return el valor de tipo T
-	 */
-	public T getValor(int pos) throws PosicionIlegalException{
-		
-			
-	}
-	/**
-	 * Elimina un nodo en una determinada posición
-	 * @param pos posición
-	 * @throw PosicionIlegalException
-	 */
-	public void remover(int pos) throws PosicionIlegalException{
-		
-			
-		}
-	}
-	/**
-	 * Elimina todos los nodos de la la lista
-	 */
-	public void limpiar() {
-		
-	}
+public class Lista <T>{
+    //atributos 
+    //primer nodo de la lista
+    private Nodo <T> cabeza;
+    //total de elementos de la lista 
+    private int size;
+    //constructor por defecto 
+    public Lista (){
+        cabeza=null;
+        size=0;
+    }
+    //devuelve el tamaño de la lista 
+    public int getSize() {
+        return size;
+    }
+    //consulta si la lista esta vacia
+    public boolean esVacio(){
+        if (cabeza==null){
+            return true;
+        }
+        return false;
+    }
+    //agraga un nuevo nodo al final de la lista 
+    public void agregar (T valor){
+        Nodo <T> nuevo =new Nodo <T> ();
+        nuevo.setValor(valor);
+        if(esVacio())
+        {
+            cabeza=nuevo;
+        }
+        else
+        {//agregar al final de la lista 
+            Nodo <T> aux = cabeza;
+            while (aux.getSiguiente()!=null) {
+                aux=aux.getSiguiente();
+            }
+            aux.setSiguiente(nuevo);
 
+        }
+        size++;
+    }
 }
