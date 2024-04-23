@@ -10,10 +10,12 @@ import datos.PosicionIlegalException;
 
 public class ListadeContactos {
 	//Atributo
-	
+	private Lista<Contacto> contactos;
 	//Metodos
 	//Constructor
-	
+	public ListadeContactos(){
+		contactos= new ListadeContactos<Contacto>();
+	}
 	/**
 	 * Retorna una lista de todos los contactos
 	 */
@@ -50,7 +52,7 @@ public class ListadeContactos {
 				contactos.agregar(nuevo);
 				return true;
 			}else {
-				
+				return false;
 			}
 		}
 	/**
@@ -94,7 +96,7 @@ public class ListadeContactos {
 			}
 			
 		}
-		return ;//No lo encontro, devuelve nulo
+		return null;//No lo encontro, devuelve nulo
 		
 	}
 	public boolean modificarContacto(String nombres, String apellidos,
@@ -116,6 +118,7 @@ public class ListadeContactos {
 	
 	public int tamanio() {
 		
+		return contactos.getSize();
 	}
 	
 }
