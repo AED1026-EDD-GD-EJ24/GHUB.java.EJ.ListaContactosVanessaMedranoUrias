@@ -14,21 +14,21 @@ public class ListadeContactos {
 	//Metodos
 	//Constructor
 	public ListadeContactos(){
-		contactos= new ListadeContactos<Contacto>();
+		contactos= new Lista<Contacto>();
 	}
 	/**
 	 * Retorna una lista de todos los contactos
 	 */
 	public Lista<Contacto> mostrarTodosLosContactos(){
 		try {
-			   for (int i=0;i<contactos.getTamanio();i++) {
+			   for (int i=0; i<contactos.getSize(); i++) {
 				   System.out.print("Num: "+i+"-> ");
 				   System.out.println(contactos.getValor(i).getNombres()+" "+
-				                   contactos.getValor(i).getApellidos()+ " "+
-						           contactos.getValor(i).getDireccion()+ " "+
-				                   contactos.getValor(i).getCorreo()+" "+
-						           contactos.getValor(i).getTelefono()+" "+
-				                   contactos.getValor(i).getCelular());
+				                	contactos.getValor(i).getApellidos()+" "+
+						           	contactos.getValor(i).getDireccion()+ " "+
+				                  	contactos.getValor(i).getCorreo()+" "+
+						          	contactos.getValor(i).getTelefono()+" "+
+				                   	contactos.getValor(i).getCelular());
 			   }
 		
 			}
